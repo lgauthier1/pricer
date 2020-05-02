@@ -1,0 +1,23 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "main": "api.js",
+  "scripts": {
+    "now-build": "npm install",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "gauthier.laurent",
+  "license": "ISC",
+  "dependencies": {
+    "esm": "^3.2.25",
+    "fs": "0.0.1-security",
+    "node-fetch": "^2.6.0",
+    "rawjs": "git+https://git@github.com/vbrajon/rawjs.git"
+  },
+  "engines": {
+    "node": "12.x"
+  }
+}

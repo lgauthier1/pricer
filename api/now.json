@@ -1,0 +1,9 @@
+{
+  "version": 2,
+  "scope": "gauthierlaurent",
+  "builds": [
+    { "src": "package.json", "use": "@now/node" },
+    { "src": "api.js", "use": "@now/node" }
+  ],
+  "routes": [{ "handle": "filesystem" }, { "src": ".*", "dest": "api.js" }]
+}
