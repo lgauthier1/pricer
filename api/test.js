@@ -12,23 +12,24 @@ const display_test = (label ,status) => {
 const run_tests = async () => {
     console.log('CAC40 get symbol (<1min)')
     try{
-      start = new Date()
+      const start = new Date()
       const cac40 = await get_symbols('cac40')
-      end = new Date()
-      duration = new Date(end - start).format('mm:ss')
+      const end = new Date()
+      const duration = new Date(end - start).format('mm:ss')
       display_test('Build cac40 Symbols (in {})'.format(duration), true)
       const missing_cac40 = cac40.flat().filter(d => d.isin === 'error' || d.url === 'error').length
       display_test('CAC40 Symbols with error {} / {}:'.format(missing_cac40.toString(), cac40.flat().length), missing_cac40 == 0)
       //TO DO cach des symbols
     }catch(e){
+      console.log(e)
       display_test('Build CAC40 Symbols', false)
     }
     console.log('Etf get symbols...')
     try{
-      start = new Date()
+      const start = new Date()
       const etf = await get_symbols('etf')
-      end = new Date()
-      duration = new Date(end - start).format('mm:ss')
+      const end = new Date()
+      const duration = new Date(end - start).format('mm:ss')
       display_test('Build ETF Symbols (in {})'.format(duration), true)
       const missing_etf = etf.flat().filter(d => d.isin === 'error' || d.url === 'error').length
       display_test('ETF Symbols with error {} / {}:'.format(missing_etf.toString(), etf.flat().length), missing_etf == 0)

@@ -43,7 +43,7 @@ module.export = get_symbols = async (market) => {
       const url = d.match(pattern2)[0].replace('href="/','').replace('/"\n','')
       const label = d.match(/title=".*"/g)[0].replace('title="', '').replace('"','')
       const fiche_valeur =  await parse_fiche_valeur(url)
-      return  {...fiche_valeur, label}
+      return  {...fiche_valeur, label, market}
     }catch(e){
       console.log(e)
     }
