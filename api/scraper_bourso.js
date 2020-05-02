@@ -1,5 +1,19 @@
 const fs = require('fs')
 const fetch = require('node-fetch')
+const firebase = require('firebase-admin')
+
+const serviceAccount = require("./pricer.json");
+firebase.initializeApp({
+  credential: firebase.credential.cert(serviceAccount),
+  databaseURL: "https://pricer-c75a5.firebaseio.com"
+})
+const database = firebase.database()
+const get = async (key) => { return await database.ref(key).once('value').then( (snapshot) => { return snapshot.val() }) }
+const set = async (key, value) => {
+  const update = {}
+  update[key] = value
+  database.ref().update(update)
+}
 
 require('./raw.js')
 Object.extend(true)
@@ -48,24 +62,17 @@ module.export = get_symbols = async (market) => {
       console.log(e)
     }
   }))
-
-  fs.writeFileSync(['.symbols', market].join('_'), JSON.stringify(symbols), function(err) {
-    if (err) console.log(err)
-})
   return symbols
 }
 
-module.export = get_symbol = async (isin) => {
-    if (!fs.existsSync('.symbols_cac40')) await get_symbols('cac40')
-    const r1 = JSON.parse(fs.readFileSync('.symbols_cac40'))
-    const cac40 = r1.flat().filter(d => d.isin === isin)
-    if(cac40.length) return cac40[0]
+module.export = sync_firebase = async () => {
+  const cac40 = await get_symbols('cac40')
+  const etf = await  get_symbols('etf')
+  await set('public/referentiel', {...cac40, ...etf})
+}
 
-    if (!fs.existsSync('.symbols_etf')) await get_symbols('etf')
-    const r2 = JSON.parse(fs.readFileSync('.symbols_etf'))
-    const etf = r2.flat().filter(d => d.isin === isin)
-    if(etf.length) return etf[0]
-    return 'KO'
+module.export = get_symbol = async (isin) => {
+    return await get('public/referentiel/{}'.format(isin))
 }
 
 module.export = get_price = async (isin) => {
