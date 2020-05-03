@@ -3,7 +3,12 @@
   "scope": "gauthierlaurent",
   "builds": [
     { "src": "package.json", "use": "@now/node" },
-    { "src": "api.js", "use": "@now/node" }
+    { "src": "api.js", "use": "@now/node" },
+    { "src": "histo.js", "use": "@now/node", "config": { "maxLambdaSize": "60mb" }}
   ],
-  "routes": [{ "handle": "filesystem" }, { "src": ".*", "dest": "api.js" }]
+  "regions": ["cdg1"],
+  "routes": [
+    { "src": "/api", "dest": "api.js" },
+    { "src": "/histo", "dest": "histo.js", "headers": { "Access-Control-Allow-Origin": "*" } }
+  ]
 }
