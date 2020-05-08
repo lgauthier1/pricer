@@ -31,7 +31,9 @@ module.exports = async (req, res) => {
       //HACK Error when download but file is download on FS.
       await delay(500)
       const file = fs.readdirSync('/tmp/price/')
-      const content = fs.readFileSync('/tmp/price/' + file[0])
-      return res.end(content.toString('utf8'))
+      const content = fs.readFileSync('/tmp/price/' + file[0], 'utf8')
+      const price = arr => {return {'date': arr[0],'ouv': arr[1], 'haut': arr[2],'bas': arr[3],'clot': arr[4],'vol': arr[5]} }
+      res.setHeader('Content-Type', 'application/json')
+      return res.end(content.split('\n').slice(1).map(line => price(line.split('\t'))))
     })
 }
