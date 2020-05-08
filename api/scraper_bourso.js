@@ -83,6 +83,7 @@ module.export = get_symbol = async isin => {
 module.export = get_price = async isin => {
   const symbol = await get_symbol(isin)
   return {
+    isin,
     date: new Date().format(),
     price: +(await parse_fiche_valeur(symbol.url)).price,
     market: symbol.market,

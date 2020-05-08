@@ -32,7 +32,7 @@ module.exports = async (req, res) => {
       await delay(500)
       const file = fs.readdirSync('/tmp/price/')
       const content = fs.readFileSync('/tmp/price/' + file[0], 'utf8')
-      const price = arr => {return {'date': arr[0],'ouv': arr[1], 'haut': arr[2],'bas': arr[3],'clot': arr[4],'vol': arr[5]} }
+      const price = arr => {return {'isin': req.query.isin ,'date': arr[0],'ouv': arr[1], 'haut': arr[2],'bas': arr[3],'clot': arr[4],'vol': arr[5]} }
       const result = content.split('\n').slice(1).map(line => price(line.split('\t')))
       res.setHeader('Content-Type', 'application/json')
       return res.end(JSON.stringify(result))
