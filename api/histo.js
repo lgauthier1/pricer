@@ -27,7 +27,7 @@ module.exports = async (req, res) => {
   if (!req.query.isin) return res.end('Missing isin')
   const info = await get_symbol(req.query.isin)
   const url = info.url
-  const symbol = info.url.split('/')[1]
+  const symbol = info.url.split('/').slice(-1)[0]
   puppeteer
     .launch({
       args: chromium.args,
