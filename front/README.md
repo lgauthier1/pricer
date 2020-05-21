@@ -1,4 +1,4 @@
-# test Parcel
+# Front Pricer
 
 #Dev
 parcel serve src/index.html
