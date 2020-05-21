@@ -3,10 +3,10 @@ import App from './App.vue'
 import router from './router'
 
 // Gestion des composants:
-import HelloWorld from './components/HelloWorld.vue'
+import Screen1 from './screens/screen1.vue'
 
 const components = {
-  HelloWorld
+  Screen1
 }
 Object.keys(components).map(name => Vue.component(name, components[name]))
 
