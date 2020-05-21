@@ -1,5 +1,4 @@
-<template>
-  <div>
-    <h1>Screen1.vue</h1>
-  </div>
+<template lang="pug">
+  .column.content
+    h1 📈 Screen1
 </template>

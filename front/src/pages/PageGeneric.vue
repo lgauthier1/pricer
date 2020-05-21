@@ -1,20 +1,7 @@
-<template>
-  <div>
-    <h1> Page Generic Layout 1 </h1>
-    <h2> {{ $route.params }} </h2>
-    <component :is="screen">
-      <router-view/>
-    </component>
-  </div>
+<template lang="pug">
+    .screen
+      component(:is="$route.params.screen")
 </template>
-<script>
-export default {
-  computed: {
-    screen() {
-      console.log('screen')
-      console.log(this.$route.params.screen)
-      return this.$route.params.screen
-    }
-  }
-}
-</script>
+<style>
+  .screen { min-width: calc(100% - 250px);min-height: calc(100vh - 50px);padding: 50px; }
+</style>
