@@ -5,7 +5,7 @@
       router-link(to="/") 🚀 Home
     h3 Stock
     .link
-      router-link(to="/screen1") 📈 K.P.I.
+      router-link(to="/overview") 📈 Overview
     h3 Fly
 </template>
 <style scoped>

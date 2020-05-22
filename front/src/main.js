@@ -1,9 +1,12 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
-
+import * as d3 from 'd3'
 import firebase from 'firebase/app'
 import 'firebase/database'
+
+window.Vue = Vue
+window.d3 = d3
 
 export const db = window.db =  firebase
   .initializeApp({ databaseURL: 'https://pricer-c75a5.firebaseio.com/' })
@@ -11,13 +14,16 @@ export const db = window.db =  firebase
 // Gestion des composants:
 import NavTop from './components/layout/NavTop.vue'
 import NavLeft from './components/layout/NavLeft.vue'
-import Screen1 from './screens/screen1.vue'
+import PlotLine from './components/PlotLine.vue'
+
+import Overview from './screens/overview.vue'
 
 //Gestion des Composants
 const components = {
   NavTop,
   NavLeft,
-  Screen1
+  PlotLine,
+  Overview
 }
 Object.keys(components).map(name => Vue.component(name, components[name]))
 

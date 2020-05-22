@@ -5,7 +5,7 @@ export default {
     }
   },
   created() {
-    db.ref('public').on(
+    db.ref('private').on(
       'value', (snapshot) => {
         this.db = snapshot.val()
       })
