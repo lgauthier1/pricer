@@ -32,6 +32,14 @@ import test from './mixins/test.js'
 import database from './mixins/database.js'
 const mixins = [test, database]
 
+// HACK en attendant un mixin utils
+window.format = Vue.prototype.format = fmt => x => {
+  if (fmt === '.2') return Math.round(x * 100) / 100
+  if (fmt === '.2€') return Math.round(x * 100) / 100 + ' €'
+  if (fmt === '.2%') return Math.round(x * 10000) / 100 + ' %'
+  return x
+}
+
 Vue.config.productionTip = false
 window.vm = window.$root = new Vue({
   router,

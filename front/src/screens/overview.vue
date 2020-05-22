@@ -2,7 +2,7 @@
   .column.content
     h1 📈 Overview
     .row.block
-      PlotLine(title='Asset under management' :data="aum")
+      PlotLine(:data="aum")
 </template>
 <script type="module">
 module.exports = {
@@ -12,7 +12,7 @@ module.exports = {
   },
   computed: {
     aum(){
-      return vm.db.inventaire.group(d => d.date).map(d => d.map(d => +d.valeur_boursiere).sum()).map((d,k) => ({date_str: k, value: d})).values()
+      return vm.db.inventaire.group(d => d.date).map(d => d.map(d => +d.valeur_boursiere).sum()).map((d,k) => ({date_str: k, value: format('.2')(d)})).values()
     },
   }
 }

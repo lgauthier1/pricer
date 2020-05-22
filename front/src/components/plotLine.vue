@@ -237,7 +237,7 @@ module.exports = {
         tooltip.attr('transform', 'translate(' + x(d.date) + ',' + y(d.value) + ')')
 
         d3.select('#tooltip-date').text(dateFormat(d.date))
-        d3.select('#tooltip-close').text(d.value + '$')
+        d3.select('#tooltip-close').text(d.value + '€')
         addNav(svg, d.value)
       }
     },
