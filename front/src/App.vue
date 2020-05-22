@@ -7,6 +7,5 @@
 </template>
 
 <style>
-
 #app { font-family: Georgia, Palatino, "Palatino Linotype", Times, "Times New Roman", serif; }
 </style>
