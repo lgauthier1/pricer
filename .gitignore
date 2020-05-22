@@ -1,2 +1,3 @@
 api/.symbols*
 auth/
+api/auth

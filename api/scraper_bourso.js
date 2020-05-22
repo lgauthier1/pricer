@@ -1,7 +1,7 @@
 const fetch = require('node-fetch')
 const firebase = require('firebase-admin')
 
-const serviceAccount = require('./pricer.json')
+const serviceAccount = require('./auth/pricer.json')
 firebase.initializeApp({
   credential: firebase.credential.cert(serviceAccount),
   databaseURL: 'https://pricer-c75a5.firebaseio.com',
