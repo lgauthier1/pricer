@@ -1,7 +1,7 @@
 <template lang="pug">
   #app
     NavTop
-    .row
+    .row.page
       NavLeft
       router-view
 </template>

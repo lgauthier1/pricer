@@ -14,7 +14,9 @@ export const db = window.db =  firebase
 // Gestion des composants:
 import NavTop from './components/layout/NavTop.vue'
 import NavLeft from './components/layout/NavLeft.vue'
+
 import PlotLine from './components/PlotLine.vue'
+import Kpi from './components/kpi.vue'
 
 import Overview from './screens/overview.vue'
 
@@ -23,6 +25,7 @@ const components = {
   NavTop,
   NavLeft,
   PlotLine,
+  Kpi,
   Overview
 }
 Object.keys(components).map(name => Vue.component(name, components[name]))

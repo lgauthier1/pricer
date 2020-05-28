@@ -124,7 +124,6 @@ module.exports = {
       }
 
       if (!this.data || this.data.length == 0) return
-      debugger
       this.data.forEach(d => {
         d.date = parseTime(d.date_str)
         d.value = +d.value

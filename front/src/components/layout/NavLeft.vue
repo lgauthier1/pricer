@@ -9,7 +9,7 @@
     h3 Fly
 </template>
 <style scoped>
-  .nav { width: 250px;position: sticky;align-self: flex-start;height: calc((100vh - 50px) - 2em);top: calc(50px + 1em);border-right: 1px solid rgb(238, 238, 238);overflow: hidden scroll;padding: 1em; }
+  .nav { width: 250px;position: sticky;align-self: flex-start;height: calc((100vh - 50px) - 2em);top: 50px;border-right: 1px solid rgb(238, 238, 238);overflow: hidden scroll;padding: 1em; }
   .nav > * { font-family: 'Avenir Next'; }
   .nav h3 { font-weight: 600;text-transform: uppercase;font-size: 13px;opacity: 0.7;margin-top: 3em;}
   .nav .link { margin-left: 3px;margin-bottom: 3px;padding: 0.2em; }
