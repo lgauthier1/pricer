@@ -1,13 +1,14 @@
 h1 { font-size: 2em; }
-
 :root { --red: #FF5370;--green: #2ed8b6;--blue: #4099ff; --orange: #FFB64D;--inactive:  #868e96;
-        --padding: 1rem;
+        --padding: 0.5rem;
 }
 
-.page { display: flex;flex: 1 0 auto;background: #f2f7fb;    min-height: 100vh;}
+.page { display: flex;background: #f2f7fb;min-height: 100vh; }
 .row .block, .column .block  { margin: 8px 8px 8px 8px; }
 
+.page .content .title { padding: var(--padding);font-size: 24px;font-weight: 700;}
+
 .block { display: flex;flex-direction: column;flex: 1;background-color: #fff;background-clip: border-box; box-shadow: 0 0 5px 0 rgba(43,43,43,0.1), 0 11px 6px -7px rgba(43,43,43,0.1);min-width: fit-content;min-height: fit-content;max-width: 100%;padding: var(--padding); }
-.block .title, .kpi .title { font-size: 19px;font-weight: 700; }
+.block .title { font-size: 19px;font-weight: 700; }
 .positive { color: var(--green); }
 .negative { color: var(--red); }
