@@ -4,9 +4,9 @@
     .link
       router-link(to="/") 🚀 Home
     h3 Stock
-    .link
+    .link.column
       router-link(to="/overview") 📈 Overview
-    h3 Fly
+      router-link(to="/positions") 🗃 Positions
 </template>
 <style scoped>
   .nav { width: 250px;position: sticky;align-self: flex-start;height: calc((100vh - 50px) - 2em);top: 50px;border-right: 1px solid rgb(238, 238, 238);overflow: hidden scroll;padding: 1em; }

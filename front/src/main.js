@@ -17,8 +17,10 @@ import NavLeft from './components/layout/NavLeft.vue'
 
 import PlotLine from './components/PlotLine.vue'
 import Kpi from './components/kpi.vue'
+import Table from './components/table.vue'
 
 import Overview from './screens/overview.vue'
+import Positions from './screens/positions.vue'
 
 //Gestion des Composants
 const components = {
@@ -26,7 +28,9 @@ const components = {
   NavLeft,
   PlotLine,
   Kpi,
-  Overview
+  Table,
+  Overview,
+  Positions
 }
 Object.keys(components).map(name => Vue.component(name, components[name]))
 
