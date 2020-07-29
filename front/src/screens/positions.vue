@@ -9,9 +9,10 @@
 module.exports = {
   computed: {
     positions(){
-      date = vm.db.inventaire.map('date').slice(-1)[0]
-      aum = vm.$root.db.inventaire.filter(d => d.date === date).map(d => +d.valeur_boursiere).sum()
-      return vm.$root.db.inventaire.filter(d => d.date === date).filter(d => d.quantite != 0).map(d => ({...d, poids: +d.valeur_boursiere / aum}))
+      return {}
+      // date = vm.db.inventaire.map('date').slice(-1)[0]
+      // aum = vm.$root.db.inventaire.filter(d => d.date === date).map(d => +d.valeur_boursiere).sum()
+      // return vm.$root.db.inventaire.filter(d => d.date === date && d => d.quantite != 0).map(d => ({...d, poids: +d.valeur_boursiere / aum}))
     },
   }
 }
